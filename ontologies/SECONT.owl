@@ -1,0 +1,807 @@
+@prefix : <http://encs.concordia.ca/ontologies/2014/secont#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix aseg: <http://encs.concordia.ca/ontologies/2014/secont#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://encs.concordia.ca/ontologies/2014/secont> .
+
+<http://encs.concordia.ca/ontologies/2014/secont> rdf:type owl:Ontology ;
+                                                  
+                                                  :Created_By "Sultan S. Al-Qahtani"^^xsd:string ;
+                                                  
+                                                  owl:versionInfo "Verion 1.0"^^xsd:string ;
+                                                  
+                                                  owl:versionIRI <http://encs.concordia.ca/ontologies/2014/secont/1.0> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Created_By
+
+:Created_By rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#affectsProduct
+
+:affectsProduct rdf:type owl:ObjectProperty ;
+                
+                rdfs:range :Product ;
+                
+                rdfs:domain :Vulnerability ;
+                
+                owl:inverseOf :hasVulnerability .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#causedBy
+
+:causedBy rdf:type owl:IrreflexiveProperty ,
+                   owl:ObjectProperty ;
+          
+          rdfs:domain :Impacts ;
+          
+          rdfs:range :SoftSecurityBugs .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasImpacts
+
+:hasImpacts rdf:type owl:ObjectProperty .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasSoftSecurityBugs
+
+:hasSoftSecurityBugs rdf:type owl:ObjectProperty .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasTerms
+
+:hasTerms rdf:type owl:FunctionalProperty ,
+                   owl:ObjectProperty ;
+          
+          rdfs:range :OtherSecurityTerms ;
+          
+          rdfs:domain :Vulnerability .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasVulnerability
+
+:hasVulnerability rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:domain :Product ;
+                  
+                  rdfs:range :Vulnerability .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasVulnerabilityReferences
+
+:hasVulnerabilityReferences rdf:type owl:ObjectProperty ;
+                            
+                            rdfs:domain :Vulnerability ;
+                            
+                            rdfs:range :VulnerabilityReferences .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#isCausing
+
+:isCausing rdf:type owl:IrreflexiveProperty ,
+                    owl:ObjectProperty ;
+           
+           rdfs:range :Impacts ;
+           
+           rdfs:domain :SoftSecurityBugs ;
+           
+           owl:inverseOf :causedBy .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#isLocatedIn
+
+:isLocatedIn rdf:type owl:ObjectProperty ;
+             
+             rdfs:range :Location ;
+             
+             rdfs:domain :Vulnerability .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#cveID
+
+:cveID rdf:type owl:DatatypeProperty ;
+       
+       rdfs:domain :Vulnerability ;
+       
+       rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#cweID
+
+:cweID rdf:type owl:DatatypeProperty ;
+       
+       rdfs:domain :Weakness ;
+       
+       rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#cweURL
+
+:cweURL rdf:type owl:DatatypeProperty ;
+        
+        rdfs:domain :Weakness ;
+        
+        rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasAccessComplexity
+
+:hasAccessComplexity rdf:type owl:DatatypeProperty ;
+                     
+                     rdfs:domain :Vulnerability ;
+                     
+                     rdfs:subPropertyOf :hasSeverityScore ;
+                     
+                     rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasAccessVector
+
+:hasAccessVector rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:domain :Vulnerability ;
+                 
+                 rdfs:subPropertyOf :hasSeverityScore ;
+                 
+                 rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasAuthentication
+
+:hasAuthentication rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :Vulnerability ;
+                   
+                   rdfs:subPropertyOf :hasSeverityScore ;
+                   
+                   rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasAvailabilityImpact
+
+:hasAvailabilityImpact rdf:type owl:DatatypeProperty ;
+                       
+                       rdfs:domain :Vulnerability ;
+                       
+                       rdfs:subPropertyOf :hasSeverityScore ;
+                       
+                       rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasConfidentialityImpact
+
+:hasConfidentialityImpact rdf:type owl:DatatypeProperty ;
+                          
+                          rdfs:domain :Vulnerability ;
+                          
+                          rdfs:subPropertyOf :hasSeverityScore ;
+                          
+                          rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasIntegrityImpact
+
+:hasIntegrityImpact rdf:type owl:DatatypeProperty ;
+                    
+                    rdfs:domain :Vulnerability ;
+                    
+                    rdfs:subPropertyOf :hasSeverityScore ;
+                    
+                    rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasProductName
+
+:hasProductName rdf:type owl:DatatypeProperty ;
+                
+                rdfs:domain :Product ;
+                
+                rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasProductVersion
+
+:hasProductVersion rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :Product ;
+                   
+                   rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasRefernce
+
+:hasRefernce rdf:type owl:DatatypeProperty ;
+             
+             rdfs:domain :Vulnerability ;
+             
+             rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasSeverityScore
+
+:hasSeverityScore rdf:type owl:DatatypeProperty .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#hasSource
+
+:hasSource rdf:type owl:DatatypeProperty ;
+           
+           rdfs:domain :Vulnerability ;
+           
+           rdfs:subPropertyOf :hasSeverityScore ;
+           
+           rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#lastModifiedDateTime
+
+:lastModifiedDateTime rdf:type owl:DatatypeProperty ;
+                      
+                      rdfs:domain :Vulnerability ;
+                      
+                      rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#publishedDateTime
+
+:publishedDateTime rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :Vulnerability ;
+                   
+                   rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#score
+
+:score rdf:type owl:DatatypeProperty ;
+       
+       rdfs:domain :Vulnerability ;
+       
+       rdfs:subPropertyOf :hasSeverityScore ;
+       
+       rdfs:range xsd:string .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#summary
+
+:summary rdf:type owl:DatatypeProperty ;
+         
+         rdfs:domain :Vulnerability ;
+         
+         rdfs:range xsd:string .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Application
+
+:Application rdf:type owl:Class ;
+             
+             rdfs:subClassOf :Product .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#AtError
+
+:AtError rdf:type owl:Class ;
+         
+         rdfs:subClassOf :LogicExploit .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Backdoor
+
+:Backdoor rdf:type owl:Class ;
+          
+          rdfs:subClassOf :MaliciouscodeExecution .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#BotnetAttack
+
+:BotnetAttack rdf:type owl:Class ;
+              
+              rdfs:subClassOf :Impacts .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#BoundaryCondition
+
+:BoundaryCondition rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :InputValidationError ;
+                   
+                   owl:disjointWith :MalformedInput .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#BufferOverflow
+
+:BufferOverflow rdf:type owl:Class ;
+                
+                rdfs:subClassOf :SoftSecurityBugs .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#ConfigurationError
+
+:ConfigurationError rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf :SoftSecurityBugs .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Countermeasures
+
+:Countermeasures rdf:type owl:Class .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#DataCorruption
+
+:DataCorruption rdf:type owl:Class ;
+                
+                rdfs:subClassOf :LossOfIntegrity .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#DenailOfService
+
+:DenailOfService rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :Impacts .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#DirectoryExposure
+
+:DirectoryExposure rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :LossOfConfidentiality ;
+                   
+                   owl:disjointWith :Privileges .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#DistributedCode
+
+:DistributedCode rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :MaliciouscodeExecution .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#ExceptionCondition
+
+:ExceptionCondition rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf :LogicExploit .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#FileName
+
+:FileName rdf:type owl:Class ;
+          
+          rdfs:subClassOf :Location .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Impacts
+
+:Impacts rdf:type owl:Class ;
+         
+         rdfs:subClassOf :SoftSecurityBugsProperties .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#InputValidationError
+
+:InputValidationError rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf :SoftSecurityBugs .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Location
+
+:Location rdf:type owl:Class .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Logic
+
+:Logic rdf:type owl:Class ;
+       
+       rdfs:subClassOf :TriggeredCode ;
+       
+       owl:disjointWith :Time .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#LogicExploit
+
+:LogicExploit rdf:type owl:Class ;
+              
+              rdfs:subClassOf :Logic .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#LossOfConfidentiality
+
+:LossOfConfidentiality rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :Impacts .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#LossOfIntegrity
+
+:LossOfIntegrity rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :Impacts .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#MalformedInput
+
+:MalformedInput rdf:type owl:Class ;
+                
+                rdfs:subClassOf :InputValidationError .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#MaliciouscodeExecution
+
+:MaliciouscodeExecution rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf :SoftSecurityBugs .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#MemoryConsumption
+
+:MemoryConsumption rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :DenailOfService .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#NetFlood
+
+:NetFlood rdf:type owl:Class ;
+          
+          rdfs:subClassOf :DenailOfService .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#OperatingSystem
+
+:OperatingSystem rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :Product .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#OtherSecurityTerms
+
+:OtherSecurityTerms rdf:type owl:Class .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#PariticCode
+
+:PariticCode rdf:type owl:Class ;
+             
+             rdfs:subClassOf :MaliciouscodeExecution .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Path
+
+:Path rdf:type owl:Class ;
+      
+      rdfs:subClassOf :Location .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Privileges
+
+:Privileges rdf:type owl:Class ;
+            
+            rdfs:subClassOf :LossOfConfidentiality .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Product
+
+:Product rdf:type owl:Class .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#RaceCondition
+
+:RaceCondition rdf:type owl:Class ;
+               
+               rdfs:subClassOf :LogicExploit .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#RemoteAccess
+
+:RemoteAccess rdf:type owl:Class ;
+              
+              rdfs:subClassOf :Impacts .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Rootkit
+
+:Rootkit rdf:type owl:Class ;
+         
+         rdfs:subClassOf :MaliciouscodeExecution .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#SelfPropagationCode
+
+:SelfPropagationCode rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf :MaliciouscodeExecution .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#SerialError
+
+:SerialError rdf:type owl:Class ;
+             
+             rdfs:subClassOf :LogicExploit .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#SoftSecurityBugs
+
+:SoftSecurityBugs rdf:type owl:Class ;
+                  
+                  owl:equivalentClass :SoftwareSecurityTags ;
+                  
+                  rdfs:subClassOf :SoftSecurityBugsProperties .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#SoftSecurityBugsProperties
+
+:SoftSecurityBugsProperties rdf:type owl:Class .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#SoftwareSecurityTags
+
+:SoftwareSecurityTags rdf:type owl:Class .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#SystemCrash
+
+:SystemCrash rdf:type owl:Class ;
+             
+             rdfs:subClassOf :DenailOfService .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Time
+
+:Time rdf:type owl:Class ;
+      
+      rdfs:subClassOf :TriggeredCode .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#TriggeredCode
+
+:TriggeredCode rdf:type owl:Class ;
+               
+               rdfs:subClassOf :MaliciouscodeExecution .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Trojans
+
+:Trojans rdf:type owl:Class ;
+         
+         rdfs:subClassOf :MaliciouscodeExecution .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#UnAuthorizedRoot
+
+:UnAuthorizedRoot rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :Privileges ;
+                  
+                  owl:disjointWith :UnAuthorizedUser .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#UnAuthorizedUser
+
+:UnAuthorizedUser rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :Privileges .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#UserEnumeration
+
+:UserEnumeration rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :SoftSecurityBugs .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Virus
+
+:Virus rdf:type owl:Class ;
+       
+       rdfs:subClassOf :SelfPropagationCode ;
+       
+       owl:disjointWith :Worm .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Vulnerability
+
+:Vulnerability rdf:type owl:Class .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#VulnerabilityReferences
+
+:VulnerabilityReferences rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :Vulnerability .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Weakness
+
+:Weakness rdf:type owl:Class .
+
+
+
+###  http://encs.concordia.ca/ontologies/2014/secont#Worm
+
+:Worm rdf:type owl:Class ;
+      
+      rdfs:subClassOf :SelfPropagationCode .
+
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AtError
+                :ExceptionCondition
+                :RaceCondition
+                :SerialError
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BufferOverflow
+                :ConfigurationError
+                :InputValidationError
+                :MaliciouscodeExecution
+                :UserEnumeration
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Location
+                :OtherSecurityTerms
+                :Product
+                :SoftSecurityBugsProperties
+                :SoftwareSecurityTags
+                :Vulnerability
+                :Weakness
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :MemoryConsumption
+                :NetFlood
+                :SystemCrash
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Backdoor
+                :DistributedCode
+                :PariticCode
+                :Rootkit
+                :SelfPropagationCode
+                :TriggeredCode
+                :Trojans
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BotnetAttack
+                :DenailOfService
+                :LossOfConfidentiality
+                :LossOfIntegrity
+                :RemoteAccess
+              )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+

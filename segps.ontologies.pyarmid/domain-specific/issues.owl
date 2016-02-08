@@ -1,0 +1,466 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#"
+     xml:base="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl">
+        <rdfs:comment>This ontology is part of SEON. It defines concepts to describe issues that arise in software systems.</rdfs:comment>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/clones.owl"/>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#blocksIssue -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#blocksIssue">
+        <rdfs:comment>If an issue needs to be fixed before a second one can be approached, then the first issue blocks the second one.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isBlockedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#commentsIssue -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#commentsIssue">
+        <rdfs:comment>Anyone can comment an issue.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Stakeholder"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#dependsOnIssue -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#dependsOnIssue">
+        <rdfs:comment>Some issues can be related on other ones. This property expresses such a relationship.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasAssignee -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasAssignee">
+        <rdfs:comment>An issue can get a person assigned that is responsible for fixing the issue.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Assignee"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isAssigneeOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasAttachment -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasAttachment">
+        <rdfs:comment>Issues can have one or several attachements, such as stack traces, patches, etc.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Attachment"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isAttachementOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasComment -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasComment">
+        <rdfs:comment>Stakeholders can comment on an issue.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Comment"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isCommentOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasDuplicate -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasDuplicate">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/clones.owl#hasClone"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasPriority -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasPriority">
+        <rdfs:comment>Issues can be prioritized.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Priority"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasReporter -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasReporter">
+        <rdfs:comment>A person can report an issue to the issue tracking system.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Reporter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasResolution -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasResolution">
+        <rdfs:comment>Issues are either unresolved or can be in different resolution states.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Resolution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasSeverity -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasSeverity">
+        <rdfs:comment>The severity of an issue can be assessed by the bug triager.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Severity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasStatus -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasStatus">
+        <rdfs:comment>Issues have a status.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Status"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isAssigneeOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isAssigneeOf">
+        <rdfs:comment>A developer can be assigned to an issue for fixing it.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Assignee"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isAttachementOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isAttachementOf">
+        <rdfs:comment>An attachement can be added to an issue description.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Attachment"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isBlockedBy -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isBlockedBy">
+        <rdfs:comment>If an issue is blocked by another one, then the other issue needs to be fixed first, before the current one can be resolved.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#dependsOnIssue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isCommentOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isCommentOf">
+        <rdfs:comment>A comment can be added to the discussion of an issue.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Comment"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isCommentedBy -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isCommentedBy">
+        <rdfs:comment>Comment have an author.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#commentsIssue"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Stakeholder"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasAuthor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isReporterOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#isReporterOf">
+        <rdfs:comment>A stakeholder can report an issue to the issue tracking system.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Reporter"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasReporter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasActualEffort -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasActualEffort">
+        <rdfs:comment>The actual effort in hours needed for fixing the issue.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasCommentText -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasCommentText">
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Comment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasEstimatedEffort -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasEstimatedEffort">
+        <rdfs:comment>The estimated effort in hours needed for fixing the issue.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasIssueNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasIssueNumber">
+        <rdfs:comment>An issue is identified by a number.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#hasIdentifier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasResolutionDate -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasResolutionDate">
+        <rdfs:comment>Date when the issue changed its state from unresolved to some resolution.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#hasTitle">
+        <rdfs:comment>Summary or title of the issue.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Assignee -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Assignee">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Developer"/>
+        <rdfs:comment>The developer assigned to an issue.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Attachment -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Attachment">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#File"/>
+        <rdfs:comment>A file attached to a discussion about an issue.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Bug -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Bug">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#BugFix -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#BugFix">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Activity"/>
+        <rdfs:comment>The act of fixing a bug.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Comment -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Comment">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact"/>
+        <rdfs:comment>A contribution to the discussion about a particular issue.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Enhancement -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Enhancement">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Activity"/>
+        <rdfs:comment>The act of enhancing an existing program.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#FeatureAddition -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#FeatureAddition">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Activity"/>
+        <rdfs:comment>The act of adding a new feature to a program.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#FeatureRequest -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#FeatureRequest">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:comment>A new feature of the product, which has yet to be developed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Improvement -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Improvement">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue"/>
+        <rdfs:comment>An improvement or enhancement to an *existing* feature or task.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Issue">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact"/>
+        <rdfs:comment>An issue that affects a software system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Priority -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Priority">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>The priority denoting how fast an issue should be resolved.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Reporter -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Reporter">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Stakeholder"/>
+        <rdfs:comment>The stakeholder that reported the issue.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Resolution -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Resolution">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>Indicates what happend to this bug and whether or how it has been handled.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Severity -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Severity">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>The severity denoting how important the issue is.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Status -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#Status">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>Indicates the current stage of a bug&apos;s life.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

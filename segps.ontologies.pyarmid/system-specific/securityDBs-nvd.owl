@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#"
+     xml:base="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl">
+        <rdfs:comment>System-specific ontology for National Vulnerabilities Database (NVD)</rdfs:comment>
+        <owl:imports rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasVulnerabilityId -->
+
+    <rdf:Description rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasVulnerabilityId">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasPatchSource -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasPatchSource">
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasSource"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasPatchURL -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasPatchURL">
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasURL"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#PatchReference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasUnknownSource -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasUnknownSource">
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasSource"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasUnknownURL -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasUnknownURL">
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasURL"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#UnknownReference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasVendorAdvisorySource -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasVendorAdvisorySource">
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasSource"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasVendorAdvisoryURL -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#hasVendorAdvisoryURL">
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasURL"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#VendorAdvisoryReference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#PatchReference -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#PatchReference">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Reference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#UnknownReference -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#UnknownReference">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Reference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#VendorAdvisoryReference -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#VendorAdvisoryReference">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Reference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#Product -->
+
+    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Product">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#Release -->
+
+    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Release">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#Artifact -->
+
+    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Detected -->
+
+    <owl:NamedIndividual rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Detected"/>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#High -->
+
+    <owl:NamedIndividual rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#High">
+        <rdf:type rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#VulnerabilitySeverity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Low -->
+
+    <owl:NamedIndividual rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Low">
+        <rdf:type rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#VulnerabilitySeverity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Medium -->
+
+    <owl:NamedIndividual rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Medium">
+        <rdf:type rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#VulnerabilitySeverity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Patched -->
+
+    <owl:NamedIndividual rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Patched"/>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#ReferenceTypePatch -->
+
+    <owl:NamedIndividual rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#ReferenceTypePatch"/>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#ReferenceTypeUnknown -->
+
+    <owl:NamedIndividual rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#ReferenceTypeUnknown"/>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#ReferenceTypeVndorAdvisory -->
+
+    <owl:NamedIndividual rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#ReferenceTypeVndorAdvisory"/>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Rejected -->
+
+    <owl:NamedIndividual rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Rejected"/>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Unknown -->
+
+    <owl:NamedIndividual rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl#Unknown"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

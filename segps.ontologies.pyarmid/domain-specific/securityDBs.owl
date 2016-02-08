@@ -1,0 +1,609 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#"
+     xml:base="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl">
+        <rdfs:comment>This ontology is part of SEGPS. It defines concepts to describe software seucirty vulnerabilities that arise in software securtiy databases.</rdfs:comment>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#affectProduct -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#affectProduct">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#AffectedProduct"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAffect"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#affectRelease -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#affectRelease">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#AffectedRelease"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAffect"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAffect -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAffect">
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasReferenceURI -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasReferenceURI">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Reference"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasSeverity -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasSeverity">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#VulnerabilitySeverity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasSeverityScore -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasSeverityScore">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Score"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#VulnerabilitySeverity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasStatus -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasStatus">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Status"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasVulnerability -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasVulnerability">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Release"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasWeakness -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasWeakness">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Weakness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isAchieving -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isAchieving">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Action"/>
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Impacts"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isExploting -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isExploting">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owll#Author"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isLocatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isLocatedIn">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isLunchedBy -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isLunchedBy">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owll#Author"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isMedicatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isMedicatedBy">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Countermeasures"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isResultOf -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isResultOf">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Action"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Impacts"/>
+        <owl:inverseOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isAchieving"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isTypeOf -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#isTypeOf">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Action"/>
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Weakness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAccessComplexity -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAccessComplexity">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#BaseScoreMertrics"/>
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasBaseScore"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAccessVector -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAccessVector">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#BaseScoreMertrics"/>
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasBaseScore"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAffectedReleaseName -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAffectedReleaseName">
+        <rdfs:comment>Every vulnerability affects certian name of one or more assests (Products or the Releases of these products)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#AffectedRelease"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAffectedReleaseVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAffectedReleaseVersion">
+        <rdfs:comment>Every vulnerability affects certian version of one or more assests (Products or the Releases of these products)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#AffectedRelease"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAuthentication -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAuthentication">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#BaseScoreMertrics"/>
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasBaseScore"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAvailabilityImpact -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasAvailabilityImpact">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#BaseScoreMertrics"/>
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasBaseScore"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasBaseScore -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasBaseScore">
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasScoreValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasConfidentialityImpact -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasConfidentialityImpact">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#BaseScoreMertrics"/>
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasBaseScore"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasDate -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasDate">
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasEnvironmentalScore -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasEnvironmentalScore">
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasScoreValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasIntegrityImpact -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasIntegrityImpact">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#BaseScoreMertrics"/>
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasBaseScore"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasModifiedDate -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasModifiedDate">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasDate"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasPublishedDate -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasPublishedDate">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasDate"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasScoreValue -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasScoreValue"/>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasSource -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasSource">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Reference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasTemporalScore -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasTemporalScore">
+        <rdfs:subPropertyOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasScoreValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasURL -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasURL">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Reference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasVulnerabilityId -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasVulnerabilityId">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#hasIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasWeaknessId -->
+
+    <owl:DatatypeProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#hasWeaknessId">
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Weakness"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#hasIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#hasIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#hasIdentifier"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Action -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Action">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>The vulnerability intended action that cause harms to the software product</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#AffectedProduct -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#AffectedProduct">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#AffectedRelease -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#AffectedRelease">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Release"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Application -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Application">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#AffectedProduct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Attacker -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Attacker">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owll#Author"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#BaseScoreMertrics -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#BaseScoreMertrics">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Score"/>
+        <rdfs:comment>It represent the innate characteristics of each vulnerability</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Comments -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Comments">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Summary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Countermeasures -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Countermeasures">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>This class represents the possible solutions and mitigations provided by the vendor of the vulnerable product</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#EnviromentalScoreMetrics -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#EnviromentalScoreMetrics">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Score"/>
+        <rdfs:comment>This class represents the scores customized to reflect the impact of the vulnerability on the organization</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Impacts -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Impacts">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>It represents the results of vulnerability action</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#OperatingSystem -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#OperatingSystem">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#AffectedProduct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Reference -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Reference">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>They are links to other web sites that may have information that would be of interest to the vullnerability.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Score -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Score">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#SecurityEngineer -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#SecurityEngineer">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owll#Author"/>
+        <rdfs:comment>A stakeholder that specialized in analyzing security vulnerabilities in software artifacts.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Status -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Status">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Summary -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Summary">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#TemporalScoreMetrics -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#TemporalScoreMetrics">
+        <rdfs:subClassOf rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Score"/>
+        <rdfs:comment>This class represents the scores that change over time due to events external to the vulnerability</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:seeAlso>Vulnerability is a core class that can be identified by its unique CVE-ID. The class also captures various vulnerability details, such as: date, severity score, vulnerability summary, sources (related to the same vulnerability).</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#VulnerabilitySeverity -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#VulnerabilitySeverity">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Weakness -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Weakness">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>This class represents the Common Weakness Enummeration (CWE).</rdfs:comment>
+        <rdfs:seeAlso>https://nvd.nist.gov/cwe.cfm</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owll#Author -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owll#Author">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Stakeholder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#Product -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#Release -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Release"/>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#Activity -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#Activity">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#Artifact -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact"/>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#Stakeholder -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#Stakeholder">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

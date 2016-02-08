@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#"
+     xml:base="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">This ontology is part of SE-GPS. It defines concepts to describe vulnerabilities that arise in software systems.</rdfs:comment>
+        <owl:imports rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl"/>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl"/>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/general/2012/02/measurement.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#hasArtifact -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#hasArtifact">
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Release"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#hasDate -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#hasDate"/>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#hasPatch -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#hasPatch">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#SecurityPatch"/>
+        <rdfs:domain rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#vulnerabilityTesting -->
+
+    <owl:ObjectProperty rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#vulnerabilityTesting">
+        <rdfs:range rdf:resource="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerabilityTest"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#carriesOutActivity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#carriesOutActivity -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#carriesOutActivity"/>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#hasAuthor"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#ReleaseDefects -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#ReleaseDefects">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/02/measurement.owl#DerivedMeasure"/>
+        <rdfs:comment>It represents the number of defects found in new and updated code after software is released and these defects not classfied as security vulnerabilities</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#ReleaseVulnerabilities -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#ReleaseVulnerabilities">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/02/measurement.owl#DerivedMeasure"/>
+        <rdfs:comment>It represents the number of security Vulnerabilities found in new and updated code after software is released</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#SecurityPatch -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#SecurityPatch">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact"/>
+        <rdfs:seeAlso>A security patch is a change applied to an asset to correct the weakness described by a vulnerability.</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerabilityAssessment -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerabilityAssessment">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerabilityTest -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerabilityTest">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Activity"/>
+        <rdfs:comment>An activity that carried out by security engineer or attacker to test the vulnerability to check its impact on the software system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerableMethod -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerableMethod">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerableProduct -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerableProduct">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerableRelease -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl#VulnerableRelease">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Score -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Score">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>It represents  the Common Vulnerability Scoring System (CVSS) provided by The National Vulnerability Database (NVD) for almost all known vulnerabilities.</rdfs:comment>
+        <rdfs:seeAlso>https://nvd.nist.gov/cvss.cfm</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability -->
+
+    <owl:Class rdf:about="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl#Vulnerability"/>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#Activity -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#Activity"/>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#Artifact -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact"/>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#Stakeholder -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#Stakeholder"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://aseg.cs.concordia.ca/segps/SFP" uri="SFP.owl"/>
+    <uri id="Imports Wizard Entry" name="http://se-on.org/ontologies/general/2012/02/main.owl" uri="file:/C:/Users/TechyGeek/Google%20Drive/Publication/Information%20Security%20Pyramid/SEGPS%20pyramid%20ontologies/ontologies/general/main.owl"/>
+    <uri id="User Entered Import Resolution" name="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl" uri="file:/C:/Users/TechyGeek/Google%20Drive/Publication/Information%20Security%20Pyramid/SEGPS%20pyramid%20ontologies/ontologies/domain-spanning/vulnerabilities.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1453658040158" name="http://aseg.cs.concordia.ca/segps/SFP" uri="SFP.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1453658040158" name="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl" uri="securityDBs.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1453658040158" name="http://se-on.org/ontologies/domain-specific/2012/02/code.owl" uri="code.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1453658040158" name="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl" uri="issues.owl"/>
+    </group>
+</catalog>

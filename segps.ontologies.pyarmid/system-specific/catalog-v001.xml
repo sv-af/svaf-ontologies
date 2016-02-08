@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://aseg.cs.concordia.ca/segps/ontologies/domain-spanning/2015/02/vulnerabilities.owl" uri="file:/C:/Users/TechyGeek/Google%20Drive/Publication/Information%20Security%20Pyramid/SEGPS%20pyramid%20ontologies/ontologies/domain-spanning/vulnerabilities.owl"/>
+    <uri id="User Entered Import Resolution" name="http://aseg.cs.concordia.ca/segps/ontologies/domain-specific/2015/02/securityDBs.owl" uri="file:/C:/Users/TechyGeek/Google%20Drive/Publication/Information%20Security%20Pyramid/SEGPS%20pyramid%20ontologies/ontologies/domain-specific/securityDBs.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1453475281458" name="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-nvd.owl" uri="securityDBs-nvd.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1453475281458" name="http://aseg.cs.concordia.ca/segps/ontologies/system-specific/2015/02/securityDBs-osvdb.owl" uri="securityDBs-osvdb.owl"/>
+    </group>
+</catalog>
